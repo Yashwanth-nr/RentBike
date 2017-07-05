@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= link_to @bike.manufacturer.name,@bike.manufacturer %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bike.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bike.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@bike.image_url,size: "500x500") %>
+</p>
+
+<% if @bike.is_available %>
+	<h3> Book this bike </h3>
+	<%= render'/bookings/form'  %>
+	<%end%>
+
+<%= link_to 'Edit', edit_bike_path(@bike) %> |
+<%= link_to 'Back', bikes_path %>

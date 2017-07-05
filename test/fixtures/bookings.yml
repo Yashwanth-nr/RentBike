@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_datetime: 2017-05-05 13:08:58
+  end_datetime: 2017-05-05 13:08:58
+  bike_id: 1
+  user_id: 1
+  confirmed: false
+  is_available: false
+
+two:
+  start_datetime: 2017-05-05 13:08:58
+  end_datetime: 2017-05-05 13:08:58
+  bike_id: 1
+  user_id: 1
+  confirmed: false
+  is_available: false

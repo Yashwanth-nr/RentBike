@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start datetime:</strong>
+  <%= @booking.start_datetime %>
+</p>
+
+<p>
+  <strong>End datetime:</strong>
+  <%= @booking.end_datetime %>
+</p>
+
+<p>
+  <strong>Bike:</strong>
+  <%= @booking.bike_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking.user_id %>
+</p>
+<% unless @booking.confirmed %>
+<b> This bike is available, do u wish to confirm? </b>>
+<%= form_for(@booking) do |f| %>
+<%= f.hidden_field :confirmed, value: true %>
+<%= f.submit "confirm" %>
+<%end%>
+<%end %>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

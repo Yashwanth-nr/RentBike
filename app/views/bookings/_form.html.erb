@@ -1,0 +1,28 @@
+<%= form_for(@booking) do |f| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_datetime %><br>
+    <%= f.date_select :start_datetime %>
+  </div>
+  <div class="field">
+    <%= f.label :end_datetime %><br>
+    <%= f.date_select :end_datetime %>
+  </div>
+  
+    <%= f.hidden_field :bike_id, value: @bike.nil? ? @booking.bike_id : @bike.id %>
+  
+  <div class="actions">
+    <%= f.submit "Check Availability" %>
+  </div>
+<% end %>

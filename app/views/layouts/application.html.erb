@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rentbike</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if user_signed_in? %>
+
+	welcome <%= current_user.email %>
+
+	<%= link_to "Account Settings", edit_user_registration_path %>
+	
+	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+<%else%>
+
+	<%= link_to "Register", new_user_registration_path %>
+
+	<%= link_to "Login", new_user_session_path %>
+
+<%end%>
+<br/>
+	<%= link_to "Manufacturers",manufacturers_path %> |
+	<%= link_to "Bikes", bikes_path %> |
+	<%= link_to "Bookings",bookings_path %> 
+
+
+  <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+<%= yield %>
+
+</body>
+</html>
